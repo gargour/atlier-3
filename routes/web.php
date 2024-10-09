@@ -17,8 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact', function () {
-    return 'malek bouzayen';
-});
+Route::get('/etudiant ',[EtudiantController::Class,"index"])->name("etudiant");
+Route::get('/create ',[EtudiantController::Class,"create"])->name("etudiant.create");
+Route::get('/create ',[EtudiantController::Class,"store"])->name("etudiant.ajouter");
 
-Route::resource('/etudiant', 'App\Http\Controllers\EtudiantController');
+
+Route::put('/etudiant/{etudiant}',[EtudiantController::Class,"update"])->name("etudiant.update");
+Route::get('/etudiant/{etudiant}',[EtudiantController::Class,"edit"])->name("etudiant.edit");

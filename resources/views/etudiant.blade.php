@@ -1,4 +1,5 @@
-@extends('layout')
+@foreach($liste as $value)
+<!--@extends('layout')
 @section ('content')
 <div class="row" style="margin-top:5rem;">
     <div class="col-lg-12 margin-tb">
@@ -16,17 +17,18 @@
         <th>nom</th>
         <th>prenom</th>
         <th width="280px">Action</th>
-</tr>
+</tr>-->
 <tr>
     <td>{{$loop->index}}</td>
     <td>{{$value->nom}}</td>
     <td>{{}$value->prenom}</td>
+    <td>{{}$value->classe->libelle}}</td>
     <td>
         <a class="btn btn-info" href="#">show</a>
-        <a class="btn btn-primary" href="#">Edit</a>
+        <a class="btn btn-primary" href="{{route ('etudiant.edit',$value->id}}">Edit</a>
         <button type="submit" class="btn btn-danger">Delete</button>
 </td>
 
 </tr>
 </table>
-@endsection
+@endforeach
