@@ -5,20 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
-{
-    public function update (Request $request , Etudiant $etudiant )
+{ 
+  /*  public function edit(Etudiant $etudiant){
+        $classes=Classe::all();
+
+        return view('edit', compact('etudiant','classes'));
+    }
+
+    public function update(Request $request, Etudiant $etudiant)
     {
         $request->validate([
             'nom'=>'required',
             'prenom'=>'required',
-            'classe_id'=>'required',
+            'classe_id'=>'required'
         ]);
-        $etudiant->validate([
-            'nom'=>'required'->nom,
-            'prenom'=>'required'->prenom,
-            'classe_id'=>'required'->classe_id
+        $etudiant->update([
+            'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
+            'classe_id'=>$request->classe_id
         ]);
-        return redirect()->route('etudaint')
-                         ->with('success','Student updated successfully');
+        return redirect ()->route('etudiant')
+                          ->with ('sucess','Student updated succesfully');
+    } */
+
+    public function delete (Etudiant $etudiant){
+        $etudiant-> delete();
+        return redirect()->route('etudiant')
+                         ->with('success','Post deleted successfully');
     }
 }

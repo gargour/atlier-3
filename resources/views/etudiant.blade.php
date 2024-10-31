@@ -17,7 +17,7 @@
         <th>nom</th>
         <th>prenom</th>
         <th width="280px">Action</th>
-</tr>-->
+</tr>
 <tr>
     <td>{{$loop->index}}</td>
     <td>{{$value->nom}}</td>
@@ -30,5 +30,15 @@
 </td>
 
 </tr>
-</table>
+</table>-->
+<td>
+    <from action="{{ route ('etudiant.delete',$value->id) }}" method="post">
+    <a class ="btn btn-info" href="{{route ('etudiant.delete',$value->id)}}">Show</a>
+    <a class ="btn btn-primary" href="{{route ('etudiant.edit',$value->id)}} ">Edit </a>
+    @csrf
+    @method('DELETE')
+    <input type="hidden" name="_method " value="delete">
+    <button type="submit" class="btn btn-danger"> Delete </button>
+</from>
+</td>
 @endforeach

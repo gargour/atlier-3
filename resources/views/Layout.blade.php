@@ -10,5 +10,6 @@
 <div class="container">
     @yield('content')
 </div>
+<link rel= "stylesheet" href= "{{ asset('css/ap.css')}} ">
 </body>
 </html> 
